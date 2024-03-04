@@ -14,7 +14,7 @@ const ProdukComponent = ({ produkdata }) => {
   const imageurl = process.env.NEXT_PUBLIC_IMG_URL;
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 3;
+  const itemsPerPage = 6;
   const [currentItems, setCurrentItems] = useState([]);
   const [indexOfFirstItem, setFirst] = useState([]);
   const [indexOfLastItem, setLast] = useState([]);
