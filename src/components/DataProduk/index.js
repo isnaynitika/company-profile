@@ -1,5 +1,5 @@
 import React from "react";
-import VisibleComponent from "../Visible";
+import VisibleComponent from "./Visible/visible";
 import Image from "next/image";
 import Link from "next/link";
 
