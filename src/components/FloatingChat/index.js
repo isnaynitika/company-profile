@@ -49,13 +49,13 @@ const FloatingActionButton = () => {
   }
   const lunrIndex = lunr(function () {
     this.field("id");
-    this.field("pertanyaan");
+    this.field("katakunci");
     this.field("jawaban");
 
     data.forEach((doc) => {
       this.add({
         id: doc.id,
-        pertanyaan: doc.attributes.pertanyaan,
+        katakunci: doc.attributes.katakunci,
         jawaban: doc.attributes.jawaban,
       });
     });
