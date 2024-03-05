@@ -39,27 +39,21 @@ const HomeComponent = ({ homedata }) => {
           />
         </section>
         <div className="px-12 lg:px-36 mt-6">
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ ease: "easeInOut", duration: 0.75 }}
-          >
-            <div className="flex items-center   ">
-              <Marquee autoFill={true} gradient={true} gradientWidth={50}>
-                {sectionclient.data.map((item) => (
-                  <Image
-                    key={item.id}
-                    src={`${imageurl}${item.attributes.logo_client.data.attributes.url}`}
-                    alt=""
-                    className="h-14 w-18 md:h-26 md:w-30 object-scale-up rounded-2xl md-1 md:mx-3"
-                    height={300}
-                    width={300}
-                    style={{ width: "auto", height: "200" }}
-                  />
-                ))}
-              </Marquee>
-            </div>
-          </motion.div>
+          <div className="flex items-center   animate-fade-up animate-once animate-duration-500 animate-delay-0 animate-ease-in">
+            <Marquee autoFill={true} gradient={true} gradientWidth={50}>
+              {sectionclient.data.map((item) => (
+                <Image
+                  key={item.id}
+                  src={`${imageurl}${item.attributes.logo_client.data.attributes.url}`}
+                  alt=""
+                  className="h-14 w-18 md:h-26 md:w-30 object-scale-up rounded-2xl md-1 md:mx-3"
+                  height={300}
+                  width={300}
+                  style={{ width: "auto", height: "200" }}
+                />
+              ))}
+            </Marquee>
+          </div>
         </div>
         <section className=" items-center justify-center">
           <div className=" px-4 py-8 mt-10">

@@ -12,23 +12,27 @@ const ProdukComponent = ({ produkdata }) => {
   const url = process.env.NEXT_PUBLIC_API_URL;
   const imageurl = process.env.NEXT_PUBLIC_IMG_URL;
 
+  const [searchResults, setSearchResults] = useState([]);
+  const [searchActive, setSearchActive] = useState(false);
+
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 4;
   const [currentItems, setCurrentItems] = useState([]);
   const [indexOfFirstItem, setFirst] = useState([]);
   const [indexOfLastItem, setLast] = useState([]);
+  const totalItems = produkdata.data.attributes.list_produks.data.length;
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
 
   const [currentPageresult, setCurrentPageresult] = useState(1);
   const itemsPerPageresult = 4;
   const [currentItemsresult, setCurrentItemsresult] = useState([]);
   const [indexOfFirstItemresult, setFirstresult] = useState([]);
   const [indexOfLastItemresult, setLastresult] = useState([]);
+  const totalItemsresult = searchResults.length;
+  const totalPagesresult = Math.ceil(totalItemsresult / itemsPerPageresult);
 
   const headerpath = produkdata.data.attributes;
   const listproduk = produkdata.data.attributes.list_produks.data;
-
-  const [searchResults, setSearchResults] = useState([]);
-  const [searchActive, setSearchActive] = useState(false);
 
   const handleSearch = async (query) => {
     if (query == "") {
@@ -38,14 +42,16 @@ const ProdukComponent = ({ produkdata }) => {
         `${url}/list-produks?populate=gambar_produk.media&filters[nama_produk][$contains]=${query}&sort[0]=createdAt:desc`
       );
       const hasil = await response.json();
-
       setSearchResults(hasil.data);
       setSearchActive(true);
     }
   };
 
   useEffect(() => {
-    window.scrollTo({ top: 0 });
+    scrollTo({
+      behavior: "smooth",
+      top: 0,
+    });
     if (searchActive) {
       if (searchResults && searchResults) {
         const indexOfLastItemresult = currentPageresult * itemsPerPageresult;
@@ -71,13 +77,12 @@ const ProdukComponent = ({ produkdata }) => {
   }, [listproduk, currentPage, searchActive, searchResults, currentPageresult]);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
   const paginateresult = (pageNumberresult) => setCurrentPageresult(pageNumberresult);
 
   return (
     <div>
       <Animation className="">
-        <section className="">
+        <div className="h-fit">
           <div className="h-[90px] bg-gradient-to-r from-red-500 to-red-800 ">
             <div className="py-8 px-[5%] md:px-[10%]">
               <div className="mx-auto flex items-center justify-between">
@@ -90,68 +95,66 @@ const ProdukComponent = ({ produkdata }) => {
               </div>
             </div>
           </div>
-          <div className="h-full mt-10">
-            <div>
-              <div className=" flex items-center justify-center mb-20">
-                <div className="grid grid-cols-1 gap-4">
-                  {searchActive ? (
-                    <div>
-                      {searchResults.length == 0 ? (
-                        <div className="min-h-[28rem] flex justify-center items-center">
-                          <section className="bg-white animate-fade-up animate-once animate-duration-[800ms] animate-delay-200 animate-ease-in">
-                            <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-                              <div className="mx-auto max-w-screen-sm text-center">
-                                <h1 className="mb-4 text-3xl tracking-tight font-extrabold lg:text-5xl text-red-600 ">
-                                  Maaf
-                                </h1>
-                                <p className="mb-4 text-2xl tracking-tight font-bold text-gray-900 md:text-3xl ">
-                                  Produk Tidak Ditemukan
-                                </p>
-                                <p className="mb-4 text-lg font-light text-gray-500 ">
-                                  Anda bisa mencari produk kami yang lain
-                                </p>
-                              </div>
+          <div className="mt-10">
+            <div className=" flex items-center justify-center mb-20">
+              <div className="grid grid-cols-1 gap-4">
+                {searchActive ? (
+                  <div>
+                    {searchResults.length == 0 ? (
+                      <div className="min-h-[28rem] flex justify-center items-center">
+                        <section className="bg-white animate-fade-up animate-once animate-duration-[800ms] animate-delay-200 animate-ease-in">
+                          <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+                            <div className="mx-auto max-w-screen-sm text-center">
+                              <h1 className="mb-4 text-3xl tracking-tight font-extrabold lg:text-5xl text-red-600 ">
+                                Maaf
+                              </h1>
+                              <p className="mb-4 text-2xl tracking-tight font-bold text-gray-900 md:text-3xl ">
+                                Produk Tidak Ditemukan
+                              </p>
+                              <p className="mb-4 text-lg font-light text-gray-500 ">
+                                Anda bisa mencari produk kami yang lain
+                              </p>
                             </div>
-                          </section>
-                        </div>
-                      ) : (
-                        <div>
-                          {currentItemsresult.map((item, index) => (
-                            <ItemProduk
-                              key={item.id}
-                              gambarproduk={
-                                item.attributes.gambar_produk.data
-                                  ? `${imageurl}${item.attributes.gambar_produk.data.attributes.url}`
-                                  : "../../../noimg.svg"
-                              }
-                              nama={item.attributes.nama_produk}
-                              deskripsi={item.attributes.deskripsi}
-                              linkproduk={item.attributes.url}
-                              index={index}
-                            />
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ) : (
-                    <div>
-                      {currentItems.map((item, index) => (
-                        <ItemProduk
-                          key={item.id}
-                          gambarproduk={
-                            item.attributes.gambar_produk.data
-                              ? `${imageurl}${item.attributes.gambar_produk.data.attributes.url}`
-                              : "../../../noimg.svg"
-                          }
-                          nama={item.attributes.nama_produk}
-                          deskripsi={item.attributes.deskripsi}
-                          linkproduk={item.attributes.url}
-                          index={index}
-                        />
-                      ))}
-                    </div>
-                  )}
-                </div>
+                          </div>
+                        </section>
+                      </div>
+                    ) : (
+                      <div>
+                        {currentItemsresult.map((item, index) => (
+                          <ItemProduk
+                            key={item.id}
+                            gambarproduk={
+                              item.attributes.gambar_produk.data
+                                ? `${imageurl}${item.attributes.gambar_produk.data.attributes.url}`
+                                : "../../../noimg.svg"
+                            }
+                            nama={item.attributes.nama_produk}
+                            deskripsi={item.attributes.deskripsi}
+                            linkproduk={item.attributes.url}
+                            index={index}
+                          />
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <div>
+                    {currentItems.map((item, index) => (
+                      <ItemProduk
+                        key={item.id}
+                        gambarproduk={
+                          item.attributes.gambar_produk.data
+                            ? `${imageurl}${item.attributes.gambar_produk.data.attributes.url}`
+                            : "../../../noimg.svg"
+                        }
+                        nama={item.attributes.nama_produk}
+                        deskripsi={item.attributes.deskripsi}
+                        linkproduk={item.attributes.url}
+                        index={index}
+                      />
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
             {searchActive ? (
@@ -167,7 +170,7 @@ const ProdukComponent = ({ produkdata }) => {
                     </button>
                     <button
                       onClick={() => paginateresult(currentPageresult + 1)}
-                      disabled={indexOfLastItemresult >= searchResults.length}
+                      disabled={currentPageresult === totalPagesresult}
                       className="mr-2 px-4 py-2    disabled:opacity-60 border border-red-500"
                     >
                       <FontAwesomeIcon icon={faChevronRight} className="text-red-500 text-bold" />
@@ -188,7 +191,7 @@ const ProdukComponent = ({ produkdata }) => {
                     </button>
                     <button
                       onClick={() => paginate(currentPage + 1)}
-                      disabled={indexOfLastItem >= listproduk.length}
+                      disabled={currentPage === totalPages}
                       className="mr-2 px-4 py-2    disabled:opacity-60 border border-red-500"
                     >
                       <FontAwesomeIcon icon={faChevronRight} className="text-red-500 text-bold" />
@@ -198,7 +201,7 @@ const ProdukComponent = ({ produkdata }) => {
               </div>
             )}
           </div>
-        </section>
+        </div>
         <div className="mt-[4rem] md:mt-[2%]">
           <Footer1 />
         </div>
