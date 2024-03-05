@@ -34,7 +34,7 @@ const CareerComponent = ({ careerdata }) => {
     <div>
       <Animation>
         <section className="bg-gradient-to-r relative from-red-500 to-red-800 ">
-          <div className="h-[350px]">
+          <div className="h-[370px] md:h-[350px]">
             <div className="py-8 px-[5%] md:px-[10%]">
               <div className="flex flex-col gap-y-4 md:mt-8">
                 <div className="flex flex-row gap-x-1">
@@ -82,7 +82,7 @@ const CareerComponent = ({ careerdata }) => {
                     </div>
                   </div>
                 </div>
-                <div className="font-light text-sm md:text-md lg:text-lg text-white text-justify">
+                <div className="font-light text-sm md:text-md lg:text-lg text-white text-justify ">
                   {mainsection.deskripsi}
                 </div>
               </div>

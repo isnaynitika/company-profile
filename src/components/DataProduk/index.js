@@ -11,7 +11,7 @@ const ItemProduk = ({ gambarproduk, nama, deskripsi, linkproduk, index }) => {
       ref={ref}
       className={`grid grid-col-1 md:grid-cols-2 md:flex md:px-[5%] lg:px-[12%] md:flex-row md:gap-10 items-center mb-4 place-items-center px-4  ${
         isVisible
-          ? `animate-fade-left animate-once animate-duration-500 animate-delay-0 animate-ease-in`
+          ? `animate-fade-up animate-once animate-duration-500 animate-delay-0 animate-ease-in`
           : "opacity-0"
       }`}
     >

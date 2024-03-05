@@ -39,7 +39,7 @@ const PortofolioComponent = ({ listporto }) => {
       <Animation>
         <section className="w-full h-[full]">
           <div className="grid grid-rows-2 relative">
-            <div className="h-[480px] bg-gradient-to-r from-red-500 to-red-800 z-[5]">
+            <div className="h-[500px] md:h-[480px] bg-gradient-to-r from-red-500 to-red-800 z-[5]">
               <div className="py-8 px-[5%] md:px-[10%]">
                 <div className="flex flex-col gap-y-4 md:mt-10">
                   <div className="flex flex-row gap-x-1">

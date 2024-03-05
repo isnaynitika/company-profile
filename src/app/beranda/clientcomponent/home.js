@@ -54,7 +54,7 @@ const HomeComponent = ({ homedata }) => {
                     className="h-14 w-18 md:h-26 md:w-30 object-scale-up rounded-2xl md-1 md:mx-3"
                     height={300}
                     width={300}
-                    style={{ width: "auto", height: "auto" }}
+                    style={{ width: "auto", height: "200" }}
                   />
                 ))}
               </Marquee>

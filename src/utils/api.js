@@ -126,3 +126,14 @@ export async function getProduk() {
     return res.json();
   }
 }
+
+export async function searchProduk(param) {
+  const res = await fetch(`${url}/list-produks?filters[nama_produk][$contains]=${param}`, {
+    cache: "no-store",
+  });
+  if (!res.ok) {
+    redirect("/error");
+  } else {
+    return res.json();
+  }
+}

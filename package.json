@@ -23,11 +23,12 @@
     "lunr": "^2.3.9",
     "mysql2": "^3.9.1",
     "net": "^1.0.2",
+    "next": "14.1.1",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.1.1",
     "react-fast-marquee": "^1.6.3",
-    "sequelize": "^6.37.0"
+    "sequelize": "^6.37.0",
+    "use-debounce": "^10.0.0"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",

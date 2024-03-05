@@ -388,6 +388,15 @@ export default function Navbar() {
                     >
                       Hubungi Kami
                     </Link>
+                    <Link
+                      className={`-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 link ${
+                        pathname === "/produk" ? "text-red-500" : ""
+                      }`}
+                      href="/produk"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Produk
+                    </Link>
                   </div>
                 </div>
               </div>
