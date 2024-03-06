@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SearchComponent from "../../../components/Search";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
+import Pagination from "../../../utils/pagination";
 
 const ProdukComponent = ({ produkdata }) => {
   const url = process.env.NEXT_PUBLIC_API_URL;
@@ -76,96 +77,16 @@ const ProdukComponent = ({ produkdata }) => {
     }
   }, [listproduk, currentPage, searchActive, searchResults, currentPageresult]);
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
-  const paginateresult = (pageNumberresult) => setCurrentPageresult(pageNumberresult);
-
   const handlePageChange = (page) => {
     if (page >= 1 && page <= totalPages) {
       setCurrentPage(page);
     }
   };
-  const renderPageNumbers = () => {
-    const pageNumbers = [];
-    const maxPagesToShow = 3;
 
-    if (totalPages > maxPagesToShow) {
-      let startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
-      let endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
-
-      if (endPage - startPage < maxPagesToShow - 1) {
-        startPage = Math.max(1, endPage - maxPagesToShow + 1);
-      }
-
-      if (startPage > 1) {
-        pageNumbers.push(
-          <button key={1} onClick={() => handlePageChange(1)} className="px-4 py-2 text-red-500">
-            1
-          </button>
-        );
-        if (startPage > 2) {
-          pageNumbers.push(
-            <span key="ellipsis1" className="text-red-500">
-              ...
-            </span>
-          );
-        }
-      }
-
-      for (let i = startPage; i <= endPage; i++) {
-        pageNumbers.push(
-          <button
-            key={i}
-            onClick={() => handlePageChange(i)}
-            disabled={currentPage === i}
-            className={`${
-              currentPage === i
-                ? "bg-red-500 text-white font-semibold rounded-md mr-2 px-4 py-2"
-                : ""
-            } px-4 py-2 text-red-500  `}
-          >
-            {i}
-          </button>
-        );
-      }
-
-      if (endPage < totalPages) {
-        if (endPage < totalPages - 1) {
-          pageNumbers.push(
-            <span key="ellipsis2" className="text-red-500">
-              ...
-            </span>
-          );
-        }
-        pageNumbers.push(
-          <button
-            key={totalPages}
-            onClick={() => handlePageChange(totalPages)}
-            className="px-4 py-2 text-red-500"
-          >
-            {totalPages}
-          </button>
-        );
-      }
-    } else {
-      for (let i = 1; i <= totalPages; i++) {
-        pageNumbers.push(
-          <button
-            key={i}
-            onClick={() => handlePageChange(i)}
-            disabled={currentPage === i}
-            className={`${
-              currentPage === i
-                ? "bg-red-500 text-white font-semibold rounded-md mr-2 px-4 py-2"
-                : ""
-            } px-4 py-2 text-red-500  `}
-          >
-            {i}
-          </button>
-        );
-      }
+  const handlePageChangeResult = (page) => {
+    if (page >= 1 && page <= totalPagesresult) {
+      setCurrentPageresult(page);
     }
-
-    return pageNumbers;
   };
 
   return (
@@ -184,7 +105,7 @@ const ProdukComponent = ({ produkdata }) => {
               </div>
             </div>
           </div>
-          <div className="mt-10">
+          <div className="mt-10 h-[70%]">
             <div className=" flex items-center justify-center mb-20">
               <div className="grid grid-cols-1 gap-4">
                 {searchActive ? (
@@ -250,20 +171,11 @@ const ProdukComponent = ({ produkdata }) => {
               <div>
                 {searchResults.length > itemsPerPageresult && (
                   <div className="mt-4 flex justify-center items-center text-center gap-4">
-                    <button
-                      onClick={() => paginateresult(currentPageresult - 1)}
-                      disabled={currentPageresult === 1}
-                      className="mr-2 px-4 py-2    disabled:opacity-60 border border-red-500"
-                    >
-                      <FontAwesomeIcon icon={faChevronLeft} className="text-red-500 text-bold" />
-                    </button>
-                    <button
-                      onClick={() => paginateresult(currentPageresult + 1)}
-                      disabled={currentPageresult === totalPagesresult}
-                      className="mr-2 px-4 py-2    disabled:opacity-60 border border-red-500"
-                    >
-                      <FontAwesomeIcon icon={faChevronRight} className="text-red-500 text-bold" />
-                    </button>
+                    <Pagination
+                      currentPage={currentPageresult}
+                      totalPages={totalPagesresult}
+                      onPageChange={handlePageChangeResult}
+                    />
                   </div>
                 )}
               </div>
@@ -271,21 +183,11 @@ const ProdukComponent = ({ produkdata }) => {
               <div>
                 {listproduk.length > itemsPerPage && (
                   <div className="mt-4 flex justify-center items-center text-center gap-4">
-                    <button
-                      onClick={() => paginate(currentPage - 1)}
-                      disabled={currentPage === 1}
-                      className="px-4 py-2    disabled:opacity-60 "
-                    >
-                      <FontAwesomeIcon icon={faChevronLeft} className="text-red-500 text-bold" />
-                    </button>
-                    {renderPageNumbers()}
-                    <button
-                      onClick={() => paginate(currentPage + 1)}
-                      disabled={currentPage === totalPages}
-                      className="px-4 py-2    disabled:opacity-60 "
-                    >
-                      <FontAwesomeIcon icon={faChevronRight} className="text-red-500 text-bold" />
-                    </button>
+                    <Pagination
+                      currentPage={currentPage}
+                      totalPages={totalPages}
+                      onPageChange={handlePageChange}
+                    />
                   </div>
                 )}
               </div>

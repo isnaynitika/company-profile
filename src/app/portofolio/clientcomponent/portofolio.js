@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight, faCoffee, faStar } from "@fortawesome/free-solid-svg-icons";
 import Animation from "../../../components/Animation";
+import Pagination from "../../../utils/pagination";
 
 const PortofolioComponent = ({ listporto }) => {
   const imageurl = process.env.NEXT_PUBLIC_IMG_URL;
@@ -15,6 +16,8 @@ const PortofolioComponent = ({ listporto }) => {
   const [currentItems, setCurrentItems] = useState([]);
   const [indexOfFirstItem, setFirst] = useState([]);
   const [indexOfLastItem, setLast] = useState([]);
+  const totalItems = listporto.data.attributes.list_portofolios.data.length;
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
 
   const mainsection = listporto.data.attributes.main_section;
   const portofoliosection = listporto.data.attributes.portofolio_section;
@@ -32,7 +35,15 @@ const PortofolioComponent = ({ listporto }) => {
     }
   }, [listportofolio, currentPage]);
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const handlePageChange = (page) => {
+    scrollTo({
+      behavior: "instant",
+      top: 600,
+    });
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+    }
+  };
 
   return (
     <div>
@@ -96,26 +107,11 @@ const PortofolioComponent = ({ listporto }) => {
                     </div>
                     {listportofolio.data.length > itemsPerPage && (
                       <div className="mt-4 flex justify-center items-center text-center gap-4">
-                        <button
-                          onClick={() => paginate(currentPage - 1)}
-                          disabled={currentPage === 1}
-                          className="mr-2 px-4 py-2    disabled:opacity-60 border border-red-500"
-                        >
-                          <FontAwesomeIcon
-                            icon={faChevronLeft}
-                            className="text-red-500 text-bold"
-                          />
-                        </button>
-                        <button
-                          onClick={() => paginate(currentPage + 1)}
-                          disabled={indexOfLastItem >= listportofolio.data.length}
-                          className="mr-2 px-4 py-2    disabled:opacity-60 border border-red-500"
-                        >
-                          <FontAwesomeIcon
-                            icon={faChevronRight}
-                            className="text-red-500 text-bold"
-                          />
-                        </button>
+                        <Pagination
+                          currentPage={currentPage}
+                          totalPages={totalPages}
+                          onPageChange={handlePageChange}
+                        />
                       </div>
                     )}
                   </div>
