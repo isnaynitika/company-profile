@@ -115,7 +115,7 @@ const PortofolioComponent = ({ listporto }) => {
           </div>
           <div className="flex justify-center">
             <div className="max-w-7xl">
-              <div className="lg:grid lg:grid-cols-3 sm:grid sm:grid-cols-2 md:px-[5%]">
+              <div className="lg:grid lg:grid-cols-3 sm:grid sm:grid-cols-2 gap-5  lg:px-[5%] ">
                 {currentItems.map((item, index) => (
                   <div key={item.id}>
                     {item.attributes.gambar_utama.data == null ? (

@@ -49,7 +49,7 @@ const PrincipalComponent = ({ principaldata }) => {
         <section className="h-full md:py-5 relative md:flex md:justify-center ">
           <div className="flex flex-wrap flex-col gap-y-6 sm:flex sm:flex-col sm:gap-y-8 px-4 py-1 relative z-20  md:grid md:grid-cols-2 md:gap-x-14 md:mt-10 max-w-7xl md:px-16">
             <div className="flex flex-col gap-y-2 md:gap-y-5 sm:flex-col animate-delay-300 animate-fade-right animate-once animate-duration-[800ms] animate-ease-in mt-7">
-              <div className="bg-gray-100 text-xs md:w-80 font-semibold self-start p-2 rounded-lg md:text-md">
+              <div className="bg-gray-100 text-xs md:w-auto font-semibold self-start p-2 rounded-lg md:text-md">
                 {mainsection.judul_path}
               </div>
               <p className="text-lg font-semibold md:text-2xl text-white lg:text-gray-800">
@@ -100,7 +100,7 @@ const PrincipalComponent = ({ principaldata }) => {
               </div>
             </div>
           </div>
-          <div className="bg-red-500 h-48 md:h-80 absolute top-0 lg:top-96 w-full bg-gradient-to-r from-red-500 to-red-800 z-10"></div>
+          <div className="bg-red-500 h-48 md:h-[23rem] xl:h-96 absolute top-0 lg:top-96 w-full bg-gradient-to-r from-red-500 to-red-800 z-10"></div>
         </section>
         <section className="flex justify-center">
           <div className="h-full md:py-5 relative lg:mt-6 xl:mt-10 max-w-7xl">

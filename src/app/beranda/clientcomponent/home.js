@@ -88,7 +88,7 @@ const HomeComponent = ({ homedata }) => {
           </div>
         </section>
         <section className="bg-gray-100 flex justify-center items-center">
-          <div className=" max-w-7xl">
+          <div className=" max-w-7xl lg:px-[3%]">
             <OurProduct
               text={sectionkeunggulan.judul}
               desc={sectionkeunggulan.deskripsi}

@@ -19,20 +19,13 @@ const OurProduct = ({ text, desc, listfitur, image, index }) => {
     >
       <div className={`flex justify-center`}>
         <div className="">
-          <div className="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[500px] w-[300px] shadow-xl">
+          <div className="relative mx-auto border-gray-800 dark:border-gray-800 bg-transparant border-[14px] rounded-[2.5rem] h-[500px] w-[300px] shadow-xl">
             <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
             <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
             <div className="h-[64px] w-[3px] bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
-            <div className="rounded-[2rem] overflow-hidden w-[272px] h-[472px] bg-white">
-              <div className="flex justify-center items-center h-full">
-                <Image
-                  src={image}
-                  className=" w-[272px] h-[472px] self-center"
-                  alt=""
-                  width={500}
-                  height={500}
-                  style={{ width: "auto", height: "auto" }}
-                />
+            <div className="rounded-[2rem] overflow-hidden w-[272px] h-[472px] bg-transparant">
+              <div className="flex justify-center items-center h-full object-cover ">
+                <Image src={image} className="object-cover -z-10" alt="" fill />
               </div>
             </div>
           </div>

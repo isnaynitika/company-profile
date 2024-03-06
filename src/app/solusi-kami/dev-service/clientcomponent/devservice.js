@@ -32,7 +32,7 @@ const DevServiceComponent = ({ devservicedata }) => {
         <section className="h-full">
           <div className="flex flex-col items-center self-center py-28 h-full  ">
             <div className="flex flex-col text-center mt-10 gap-y-8">
-              <div className="bg-gray-100 text-gray-800 font-semibold text-xs md:text-lg md:w-96 self-center md:px-4 p-2 rounded-xl">
+              <div className="bg-gray-100 text-gray-800 font-semibold text-xs md:text-lg md:max-w-auto self-center md:px-6 p-2 rounded-xl">
                 {mainsection.judul_path}
               </div>
               <div className="text-xl font-semibold md:text-4xl"> {mainsection.subjudul}</div>
