@@ -27,8 +27,8 @@ const ItemWork = ({ gambarporto, judulporto, perusahaan, index, slug }) => {
         />
       </div>
       <div className="flex flex-col py-4">
-        <div className="px-5 flex-auto self-start">
-          <div>
+        <div className="px-5 flex flex-auto justify-between flex-col h-full">
+          <div className="flex flex-auto">
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 line-clamp-2">
               {perusahaan}
             </h5>
@@ -39,7 +39,7 @@ const ItemWork = ({ gambarporto, judulporto, perusahaan, index, slug }) => {
         <div className="px-5 flex self-start">
           <Link
             href={`/portofolio/${slug}`}
-            className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-500 rounded-lg hover:bg-red-700 focus:outline-none  "
+            className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-red-500 bg-transparant rounded-md hover:bg-red-500 hover:text-white focus:outline-none  border border-red-500"
           >
             Read more
             <svg

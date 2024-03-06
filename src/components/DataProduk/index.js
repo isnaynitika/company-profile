@@ -28,7 +28,7 @@ const ItemProduk = ({ gambarproduk, nama, deskripsi, linkproduk, index }) => {
         <h2 className="text-lg bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-gray-800 font-medium  md:text-3xl md:font-semibold">
           {nama}
         </h2>
-        <p className="text-sm text-gray-600 mt-3 md:mt-8 md:text-lg md:font-light text-justify">
+        <p className="text-sm text-gray-600 mt-3 md:mt-8 md:text-lg md:font-light text-justify line-clamp-5">
           {deskripsi}
         </p>
         <div className="py-2 mt-3">
