@@ -20,38 +20,70 @@ const CustomDevComponent = ({ customdevdata }) => {
     <div>
       <Animation>
         <section className="w-full h-[full]">
-          <div className="grid grid-rows-2 relative">
-            <div className="h-[480px] bg-gradient-to-r from-red-500 to-red-800 z-[5]">
-              <div className="py-8 px-[5%] md:px-[10%]">
-                <div className="flex flex-col gap-y-4 md:mt-10">
+          <div className="flex flex-col">
+            <div className="h-[500px] md:h-[480px] bg-gradient-to-r from-red-500 to-red-800 z-[5] flex justify-center">
+              <div className="py-8 max-w-7xl">
+                <div className="flex flex-col gap-y-2 mt-5 md:mt-10 px-[5%]">
                   <div className="flex flex-row gap-x-1">
-                    <div className="font-normal text-sm md:text-lg text-white">
+                    <div className="font-normal text-xs sm:text-md md:text-lg text-white">
                       {mainsection.judul_path}
                     </div>
                   </div>
-                  <div className="font-semibold text-xl md:text-2xl text-white">
+                  <div className="font-semibold text-md sm:text-lg md:text-2xl text-white">
                     {mainsection.subjudul}
                   </div>
-                  <div className="font-bold text-2xl md:text-2xl lg:text-4xl text-white">
+                  <div className="font-bold text-lg sm:text-xl md:text-2xl lg:text-4xl text-white">
                     {mainsection.judul_utama}
                   </div>
-                  <div className="font-normal text-sm md:text-lg text-white text-justify">
+                  <div className="font-normal text-sm sm:text-md md:text-lg text-white text-justify">
                     {mainsection.deskripsi}
                   </div>
                 </div>
               </div>
             </div>
-            <div className="h-[10%] z-[15] bg-transparant absolute self-center justify-self-center ">
-              <div className="mt-36 py-8 px-[2%]">
-                <div className="flex flex-col text-center mb-5">
-                  <div className="text-md lg:text-lg font-medium text-red-500 ">
-                    {judulsection.judul_service}
-                  </div>
-                  <div className="text-lg lg:text-4xl font-medium text-black mb-5">
-                    {judulsection.subjudul}
+            <div className="flex justify-center items-center  h-[10rem] px-[5%]">
+              <div className="flex max-w-7xl px-4">
+                <div className="-mt-44 border bg-white rounded-xl md:py-8  shadow-md p-4 gap-y-2 min-h-0 z-[6] self-center">
+                  <div className="grid grid-cols-1 sm:grid sm:grid-cols-3">
+                    <div className="grid grid-cols-2 p-3 px-10 sm:flex sm:flex-row sm:flex-wrap xl:px-7 gap-x-6 md:gap-x-10">
+                      <div className="text-gray-600 font-bold text-lg lg:text-4xl self-center">
+                        {countsection.count1}
+                      </div>
+                      <div className="text-gray-400 font-normal text-sm self-center lg:text-xl">
+                        {countsection.deskripsi1}
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-2 p-3 px-10 sm:flex sm:flex-row sm:flex-wrap xl:px-7 gap-x-6 md:gap-x-10">
+                      <div className="text-gray-600 font-bold text-lg lg:text-4xl self-center">
+                        {countsection.count2}
+                      </div>
+                      <div className="text-gray-400 font-normal text-sm self-center lg:text-xl">
+                        {countsection.deskripsi2}
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-2 p-3 px-10 sm:flex sm:flex-row sm:flex-wrap xl:px-7 gap-x-6 md:gap-x-10">
+                      <div className="text-gray-600 font-bold text-lg lg:text-4xl self-center">
+                        {countsection.count3}
+                      </div>
+                      <div className="text-gray-400 font-normal text-sm self-center lg:text-xl">
+                        {countsection.deskripsi3}
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div>
+              </div>
+            </div>
+            <div className="z-10 -mt-10">
+              <div className="flex flex-col text-center mb-5">
+                <div className="text-md lg:text-lg font-medium text-red-500 ">
+                  {judulsection.judul_service}
+                </div>
+                <div className="text-lg lg:text-4xl font-medium text-black mb-5">
+                  {judulsection.subjudul}
+                </div>
+              </div>
+              <div className="flex justify-center">
+                <div className="max-w-7xl">
                   <div className=" flex items-center justify-center mb-20">
                     <div className="grid grid-cols-1 gap-4">
                       {listservice.data.map((item, index) => (
@@ -86,63 +118,31 @@ const CustomDevComponent = ({ customdevdata }) => {
                       ))}
                     </div>
                   </div>
-                </div>
-              </div>
-              <div className=" md:px-[5%] lg:px-[12%] ">
-                <div className="flex justify-center self-start items-start bg-gray-100 boreder rounded-2xl py-7 ">
-                  <div className="flex flex-col gap-y-8 md:px-6 text-center md:py-10">
-                    <div className="font-medium text-black text-xl md:text-3xl">
-                      {metode.metode_pengembangan}
-                    </div>
-                    <div className="font-light text-gray-600 text-lg mx-3">{metode.deskripsi}</div>
-                    <div className="flex justify-center items-center text-center">
-                      <Image
-                        src={`${imageurl}${metode.icon_metodepengembangan.data.attributes.url}`}
-                        alt=""
-                        className="size-52 sm:size-60 md:size-80 object-cover rounded-2xl text-center"
-                        width={500}
-                        height={500}
-                        style={{ width: "300px", height: "300px", objectFit: "cover" }}
-                      />
+                  <div className="flex justify-center self-start items-start bg-gray-100 boreder rounded-2xl py-7 ">
+                    <div className="flex flex-col gap-y-8 md:px-6 text-center md:py-10">
+                      <div className="font-medium text-black text-xl md:text-3xl">
+                        {metode.metode_pengembangan}
+                      </div>
+                      <div className="font-light text-gray-600 text-lg mx-3">
+                        {metode.deskripsi}
+                      </div>
+                      <div className="flex justify-center items-center text-center">
+                        <Image
+                          src={`${imageurl}${metode.icon_metodepengembangan.data.attributes.url}`}
+                          alt=""
+                          className="size-52 sm:size-60 md:size-80 object-cover rounded-2xl text-center"
+                          width={500}
+                          height={500}
+                          style={{ width: "300px", height: "300px", objectFit: "cover" }}
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="">
-                <Footer2 />
               </div>
             </div>
-            <div className="bg-transparant  absolute top-0 left-0 w-full h-full flex items-center justify-center md:px-8 lg:px-16">
-              <div className="flex justify-center w-full px-[5%] md:px-[6%]">
-                <div className="border bg-white rounded-3xl shadow-md w-screen flex flex-col p-5 gap-y-3 min-h-0 z-[6]">
-                  <div className="grid grid-cols-1 md:grid-cols-3 md:divide-x-2 md:divide-y-0">
-                    <div className="p-3 grid grid-cols-2 md:flex-row md:flex md:gap-x-4 md:justify-center md:py-8">
-                      <div className="text-gray-600 font-bold text-lg lg:text-4xl self-center">
-                        {countsection.count1}
-                      </div>
-                      <div className="text-gray-400 font-normal text-sm self-center lg:text-xl">
-                        {countsection.deskripsi1}
-                      </div>
-                    </div>
-                    <div className="p-3 grid grid-cols-2 md:flex-row md:flex md:gap-x-4 md:justify-center">
-                      <div className="text-gray-600 font-bold text-lg lg:text-4xl self-center">
-                        {countsection.count2}
-                      </div>
-                      <div className="text-gray-400 font-normal text-sm self-center lg:text-xl">
-                        {countsection.deskripsi2}
-                      </div>
-                    </div>
-                    <div className="p-3 grid grid-cols-2 md:flex-row md:flex md:gap-x-4 md:justify-center">
-                      <div className="text-gray-600 font-bold text-lg lg:text-4xl self-center">
-                        {countsection.count3}
-                      </div>
-                      <div className="text-gray-400 font-normal text-sm self-center lg:text-xl">
-                        {countsection.deskripsi3}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div className="">
+              <Footer2 />
             </div>
           </div>
         </section>

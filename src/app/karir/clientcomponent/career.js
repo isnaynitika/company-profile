@@ -34,8 +34,8 @@ const CareerComponent = ({ careerdata }) => {
     <div>
       <Animation>
         <section className="bg-gradient-to-r relative from-red-500 to-red-800 ">
-          <div className="h-[370px] md:h-[350px]">
-            <div className="py-8 px-[5%] md:px-[10%]">
+          <div className="h-[370px] md:h-[350px] flex justify-center">
+            <div className="py-8 max-w-7xl px-[5%]">
               <div className="flex flex-col gap-y-4 md:mt-8">
                 <div className="flex flex-row gap-x-1">
                   <div className="font-normal text-sm md:text-lg text-white">
@@ -100,40 +100,41 @@ const CareerComponent = ({ careerdata }) => {
               </div>
             </div>
           </div>
-          <div className="px-[4%] md:px-[5%] ]">
-            {/* <DataPosition data={data} itemsPerPage={8} /> */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 md:mx-20">
-              {currentItems.map((item, index) => (
-                <ItemPosition1
-                  key={item.id}
-                  image={
-                    item.attributes.icon.data
-                      ? `${imageurl}${item.attributes.icon.data.attributes.url}`
-                      : "../../noimg.svg"
-                  }
-                  text={item.attributes.posisi}
-                  index={index}
-                />
-              ))}
-            </div>
-            {karirlist.length > itemsPerPage && (
-              <div className="mt-4 flex justify-center items-center text-center gap-4">
-                <button
-                  onClick={() => paginate(currentPage - 1)}
-                  disabled={currentPage === 1}
-                  className="mr-2 px-4 py-2    disabled:opacity-60 border border-red-500"
-                >
-                  <FontAwesomeIcon icon={faChevronLeft} className="text-red-500 text-bold" />
-                </button>
-                <button
-                  onClick={() => paginate(currentPage + 1)}
-                  disabled={indexOfLastItem >= karirlist.length}
-                  className="mr-2 px-4 py-2    disabled:opacity-60 border border-red-500"
-                >
-                  <FontAwesomeIcon icon={faChevronRight} className="text-red-500 text-bold" />
-                </button>
+          <div className="px-[4%] flex justify-center ">
+            <div className="max-w-7xl">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 md:mx-20">
+                {currentItems.map((item, index) => (
+                  <ItemPosition1
+                    key={item.id}
+                    image={
+                      item.attributes.icon.data
+                        ? `${imageurl}${item.attributes.icon.data.attributes.url}`
+                        : "../../noimg.svg"
+                    }
+                    text={item.attributes.posisi}
+                    index={index}
+                  />
+                ))}
               </div>
-            )}
+              {karirlist.length > itemsPerPage && (
+                <div className="mt-4 flex justify-center items-center text-center gap-4">
+                  <button
+                    onClick={() => paginate(currentPage - 1)}
+                    disabled={currentPage === 1}
+                    className="mr-2 px-4 py-2    disabled:opacity-60 border border-red-500"
+                  >
+                    <FontAwesomeIcon icon={faChevronLeft} className="text-red-500 text-bold" />
+                  </button>
+                  <button
+                    onClick={() => paginate(currentPage + 1)}
+                    disabled={indexOfLastItem >= karirlist.length}
+                    className="mr-2 px-4 py-2    disabled:opacity-60 border border-red-500"
+                  >
+                    <FontAwesomeIcon icon={faChevronRight} className="text-red-500 text-bold" />
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         </section>
         <div className="">

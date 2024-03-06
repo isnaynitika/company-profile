@@ -106,7 +106,7 @@ const Footer1 = () => {
               <div className="h-64 bg-white"></div>
               <div className="h-64 bg-gray-200"></div>
               <div className="bg-transparant absolute  top-0 left-0 z-10 h-full w-full flex items-center justify-center md:px-8 lg:px-28">
-                <div className="flex justify-center ">
+                <div className="flex justify-center max-w-7xl">
                   <div className="relative md:rounded-3xl overflow-hidden mt-4 md:mx-10">
                     <Image
                       className="w-screen h-[550px] md:h-[420px] sm:w-[1200px] xl:w-screen object-cover brightness-custom bg-gray-500"
@@ -122,7 +122,7 @@ const Footer1 = () => {
                     />
                   </div>
                   <div className="absolute">
-                    <div className="relative">
+                    <div className="relative max-w-7xl">
                       <div className="xl:grid xl:grid-cols-2 xl:px-48">
                         <div className="self-center hidden xl:block xl:px-8">
                           <div className="grid grid-rows-1 text-white gap-y-10">

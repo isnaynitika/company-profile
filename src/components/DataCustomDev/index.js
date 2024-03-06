@@ -9,7 +9,7 @@ const ItemCustom = ({ gambarservice, service, descservice, index, listservice })
   return (
     <div
       ref={ref}
-      className={`grid grid-col-1 md:grid-cols-2 md:flex md:px-[5%] lg:px-[12%] md:flex-row md:gap-10 items-center mb-4 place-items-center px-4 ${
+      className={`grid grid-col-1 md:grid-cols-2 md:flex md:px-[5%] md:flex-row md:gap-10 items-center mb-4 place-items-center px-4 ${
         isEvenRow
           ? `${
               isVisible

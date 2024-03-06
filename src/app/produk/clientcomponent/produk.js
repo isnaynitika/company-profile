@@ -93,105 +93,105 @@ const ProdukComponent = ({ produkdata }) => {
     <div>
       <Animation className="">
         <div className="h-fit">
-          <div className="h-[90px] bg-gradient-to-r from-red-500 to-red-800 ">
-            <div className="py-8 px-[5%] md:px-[10%]">
-              <div className="mx-auto flex items-center justify-between">
-                <div className="hidden lg:flex flex-row gap-x-1">
-                  <div className="font-normal text-md md:text-lg text-white">
-                    {headerpath.judul_path}
-                  </div>
+          <div className="h-[90px] bg-gradient-to-r from-red-500 to-red-800 flex justify-center">
+            <div className="py-8  flex items-center justify-between max-w-7xl text-white font-normal text-md md:text-lg w-5/6">
+              <div className="hidden lg:flex flex-row gap-x-1">
+                <div className="font-normal text-md md:text-lg text-white">
+                  {headerpath.judul_path}
                 </div>
-                <SearchComponent onSearch={handleSearch} />
               </div>
+              <SearchComponent onSearch={handleSearch} />
             </div>
           </div>
-          <div className="mt-10 h-[70%]">
-            <div className=" flex items-center justify-center mb-20">
-              <div className="grid grid-cols-1 gap-4">
-                {searchActive ? (
-                  <div>
-                    {searchResults.length == 0 ? (
-                      <div className="min-h-[28rem] flex justify-center items-center">
-                        <section className="bg-white animate-fade-up animate-once animate-duration-[800ms] animate-delay-200 animate-ease-in">
-                          <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-                            <div className="mx-auto max-w-screen-sm text-center">
-                              <h1 className="mb-4 text-3xl tracking-tight font-extrabold lg:text-5xl text-red-600 ">
-                                Maaf
-                              </h1>
-                              <p className="mb-4 text-2xl tracking-tight font-bold text-gray-900 md:text-3xl ">
-                                Produk Tidak Ditemukan
-                              </p>
-                              <p className="mb-4 text-lg font-light text-gray-500 ">
-                                Anda bisa mencari produk kami yang lain
-                              </p>
+          <div className="flex justify-center">
+            <div className="mt-10 h-[70%] max-w-7xl">
+              <div className=" flex items-center justify-center mb-20">
+                <div className="grid grid-cols-1 gap-4">
+                  {searchActive ? (
+                    <div>
+                      {searchResults.length == 0 ? (
+                        <div className="min-h-[28rem] flex justify-center items-center">
+                          <section className="bg-white animate-fade-up animate-once animate-duration-[800ms] animate-delay-200 animate-ease-in">
+                            <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+                              <div className="mx-auto max-w-screen-sm text-center">
+                                <h1 className="mb-4 text-3xl tracking-tight font-extrabold lg:text-5xl text-red-600 ">
+                                  Maaf
+                                </h1>
+                                <p className="mb-4 text-2xl tracking-tight font-bold text-gray-900 md:text-3xl ">
+                                  Produk Tidak Ditemukan
+                                </p>
+                                <p className="mb-4 text-lg font-light text-gray-500 ">
+                                  Anda bisa mencari produk kami yang lain
+                                </p>
+                              </div>
                             </div>
-                          </div>
-                        </section>
-                      </div>
-                    ) : (
-                      <div>
-                        {currentItemsresult.map((item, index) => (
-                          <ItemProduk
-                            key={item.id}
-                            gambarproduk={
-                              item.attributes.gambar_produk.data
-                                ? `${imageurl}${item.attributes.gambar_produk.data.attributes.url}`
-                                : "../../../noimg.svg"
-                            }
-                            nama={item.attributes.nama_produk}
-                            deskripsi={item.attributes.deskripsi}
-                            linkproduk={item.attributes.url}
-                            index={index}
-                          />
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <div>
-                    {currentItems.map((item, index) => (
-                      <ItemProduk
-                        key={item.id}
-                        gambarproduk={
-                          item.attributes.gambar_produk.data
-                            ? `${imageurl}${item.attributes.gambar_produk.data.attributes.url}`
-                            : "../../../noimg.svg"
-                        }
-                        nama={item.attributes.nama_produk}
-                        deskripsi={item.attributes.deskripsi}
-                        linkproduk={item.attributes.url}
-                        index={index}
+                          </section>
+                        </div>
+                      ) : (
+                        <div>
+                          {currentItemsresult.map((item, index) => (
+                            <ItemProduk
+                              key={item.id}
+                              gambarproduk={
+                                item.attributes.gambar_produk.data
+                                  ? `${imageurl}${item.attributes.gambar_produk.data.attributes.url}`
+                                  : "../../../noimg.svg"
+                              }
+                              nama={item.attributes.nama_produk}
+                              deskripsi={item.attributes.deskripsi}
+                              linkproduk={item.attributes.url}
+                              index={index}
+                            />
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <div>
+                      {currentItems.map((item, index) => (
+                        <ItemProduk
+                          key={item.id}
+                          gambarproduk={
+                            item.attributes.gambar_produk.data
+                              ? `${imageurl}${item.attributes.gambar_produk.data.attributes.url}`
+                              : "../../../noimg.svg"
+                          }
+                          nama={item.attributes.nama_produk}
+                          deskripsi={item.attributes.deskripsi}
+                          linkproduk={item.attributes.url}
+                          index={index}
+                        />
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+              {searchActive ? (
+                <div>
+                  {searchResults.length > itemsPerPageresult && (
+                    <div className="mt-4 flex justify-center items-center text-center gap-4">
+                      <Pagination
+                        currentPage={currentPageresult}
+                        totalPages={totalPagesresult}
+                        onPageChange={handlePageChangeResult}
                       />
-                    ))}
-                  </div>
-                )}
-              </div>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <div>
+                  {listproduk.length > itemsPerPage && (
+                    <div className="mt-4 flex justify-center items-center text-center gap-4">
+                      <Pagination
+                        currentPage={currentPage}
+                        totalPages={totalPages}
+                        onPageChange={handlePageChange}
+                      />
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
-            {searchActive ? (
-              <div>
-                {searchResults.length > itemsPerPageresult && (
-                  <div className="mt-4 flex justify-center items-center text-center gap-4">
-                    <Pagination
-                      currentPage={currentPageresult}
-                      totalPages={totalPagesresult}
-                      onPageChange={handlePageChangeResult}
-                    />
-                  </div>
-                )}
-              </div>
-            ) : (
-              <div>
-                {listproduk.length > itemsPerPage && (
-                  <div className="mt-4 flex justify-center items-center text-center gap-4">
-                    <Pagination
-                      currentPage={currentPage}
-                      totalPages={totalPages}
-                      onPageChange={handlePageChange}
-                    />
-                  </div>
-                )}
-              </div>
-            )}
           </div>
         </div>
         <div className="mt-[4rem] md:mt-[2%]">

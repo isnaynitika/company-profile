@@ -24,7 +24,7 @@ const HomeComponent = ({ homedata }) => {
   const sectionkeunggulan = homedata.data.attributes.keunggulan_section;
 
   return (
-    <div className="h-full ">
+    <div className="h-full">
       <Animation>
         <section className="flex justify-center ">
           <HeroSection
@@ -38,23 +38,26 @@ const HomeComponent = ({ homedata }) => {
             deskripsi={sectionhero.kalimat_kedua}
           />
         </section>
-        <div className="px-12 lg:px-36 mt-6">
-          <div className="flex items-center   animate-fade-up animate-once animate-duration-500 animate-delay-0 animate-ease-in">
-            <Marquee autoFill={true} gradient={true} gradientWidth={50}>
-              {sectionclient.data.map((item) => (
-                <Image
-                  key={item.id}
-                  src={`${imageurl}${item.attributes.logo_client.data.attributes.url}`}
-                  alt=""
-                  className="h-14 w-18 md:h-26 md:w-30 object-scale-up rounded-2xl md-1 md:mx-3"
-                  height={300}
-                  width={300}
-                  style={{ width: "auto", height: "200" }}
-                />
-              ))}
-            </Marquee>
+        <div className="flex justify-center items-center">
+          <div className="px-12 max-w-7xl mt-6  ">
+            <div className="flex items-center animate-fade-up animate-once animate-duration-500 animate-delay-0 animate-ease-in">
+              <Marquee autoFill={true} gradient={true} gradientWidth={50}>
+                {sectionclient.data.map((item) => (
+                  <Image
+                    key={item.id}
+                    src={`${imageurl}${item.attributes.logo_client.data.attributes.url}`}
+                    alt=""
+                    className="h-14 w-18 md:h-26 md:w-30 object-scale-up rounded-2xl md-1 md:mx-3"
+                    height={300}
+                    width={300}
+                    style={{ width: "auto", height: "200" }}
+                  />
+                ))}
+              </Marquee>
+            </div>
           </div>
         </div>
+
         <section className=" items-center justify-center">
           <div className=" px-4 py-8 mt-10">
             <div className="row-span-2 text-center mb-10">
@@ -65,7 +68,7 @@ const HomeComponent = ({ homedata }) => {
                 {sectionproduk.subjudul}
               </h2>
             </div>
-            <div className=" flex items-center justify-center mb-20">
+            <div className="flex items-center justify-center mb-20">
               <div className="grid grid-cols-1 gap-4">
                 {sectionlistproduk.data.map((item, index) => (
                   <ItemSolution
@@ -84,28 +87,30 @@ const HomeComponent = ({ homedata }) => {
             </div>
           </div>
         </section>
-        <section className="bg-gray-100 ">
-          <OurProduct
-            text={sectionkeunggulan.judul}
-            desc={sectionkeunggulan.deskripsi}
-            image={
-              sectionkeunggulan.mockup_produk.data
-                ? `${imageurl}${sectionkeunggulan.mockup_produk.data.attributes.url}`
-                : "../../noimg.svg"
-            }
-            listfitur={sectionkeunggulan.list_fiturs.data.map((itemfitur) => (
-              <div key={itemfitur.id}>
-                <li className="flex gap-x-2 ">
-                  <p className="md:text-md lg:text-lg text-xs font-light self-baseline">
-                    <FontAwesomeIcon icon={faCheckCircle} className=" text-green-500 " />
-                  </p>
-                  <p className="md:text-md lg:text-lg text-xs font-light self-baseline">
-                    {itemfitur.attributes.fitur}
-                  </p>
-                </li>
-              </div>
-            ))}
-          />
+        <section className="bg-gray-100 flex justify-center items-center">
+          <div className=" max-w-7xl">
+            <OurProduct
+              text={sectionkeunggulan.judul}
+              desc={sectionkeunggulan.deskripsi}
+              image={
+                sectionkeunggulan.mockup_produk.data
+                  ? `${imageurl}${sectionkeunggulan.mockup_produk.data.attributes.url}`
+                  : "../../noimg.svg"
+              }
+              listfitur={sectionkeunggulan.list_fiturs.data.map((itemfitur) => (
+                <div key={itemfitur.id}>
+                  <li className="flex gap-x-2 ">
+                    <p className="md:text-md lg:text-lg text-xs font-light self-baseline">
+                      <FontAwesomeIcon icon={faCheckCircle} className=" text-green-500 " />
+                    </p>
+                    <p className="md:text-md lg:text-lg text-xs font-light self-baseline">
+                      {itemfitur.attributes.fitur}
+                    </p>
+                  </li>
+                </div>
+              ))}
+            />
+          </div>
         </section>
         <section className="py-16">
           <div className="row-span-2 text-center mb-10 ">

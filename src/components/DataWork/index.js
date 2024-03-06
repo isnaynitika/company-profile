@@ -19,7 +19,7 @@ const ItemWork = ({ gambarporto, judulporto, perusahaan, index, slug }) => {
         <div className=" bg-white border border-gray-200 rounded-lg shadow place-items-center ">
           <a className="flex justify-center p-2" href="#">
             <Image
-              className="object-cover min-h-64 rounded-xl"
+              className="object-cover min-h-64 max-h-64 rounded-xl"
               src={gambarporto}
               alt={`Image ${index + 1}`}
               width={500}

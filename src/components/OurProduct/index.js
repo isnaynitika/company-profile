@@ -15,7 +15,7 @@ const OurProduct = ({ text, desc, listfitur, image, index }) => {
         isVisible
           ? "animate-fade-up animate-once animate-duration-[800ms] animate-delay-0 animate-ease-in"
           : "opacity-0"
-      } px-8 flex flex-col gap-y-4  lg:flex lg:flex-row-reverse md:px-16 lg:px-40 py-20`}
+      } px-8 flex flex-col gap-y-4  lg:flex lg:flex-row-reverse  py-20`}
     >
       <div className={`flex justify-center`}>
         <div className="">

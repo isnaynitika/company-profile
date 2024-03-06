@@ -18,21 +18,17 @@ const ContactComponent = ({ contactdata, listlogo }) => {
     <div>
       <Animation className="">
         <section className="">
-          <div className="h-[90px] bg-gradient-to-r from-red-500 to-red-800 ">
-            <div className="py-8 px-[5%] md:px-[10%]">
-              <div className="flex flex-col gap-y-4">
-                <div className="flex flex-row gap-x-1">
-                  <div className="font-normal text-md md:text-lg text-white">
-                    {mainsection.judul_path}
-                  </div>
-                </div>
-              </div>
+          <div className="h-[90px] bg-gradient-to-r from-red-500 to-red-800 flex justify-center">
+            <div className="py-8  flex justify-start items-center max-w-7xl text-white font-normal text-md md:text-lg w-5/6">
+              {mainsection.judul_path}
             </div>
           </div>
           <div className="h-full">
-            <div className="text-center p-8 lg:px-52 lg:p-10 lg:mt-9">
-              <p className="font-semibold text-2xl mb-5">{mainsection.judul_utama}</p>
-              <p className="font-normal text-lg">{mainsection.deskripsi}</p>
+            <div className="flex justify-center items-center">
+              <div className="text-center p-8 lg:px-52 lg:p-10 lg:mt-9 max-w-7xl">
+                <p className="font-semibold text-2xl mb-5">{mainsection.judul_utama}</p>
+                <p className="font-normal text-lg">{mainsection.deskripsi}</p>
+              </div>
             </div>
             <div className="flex flex-row flex-wrap gap-8 justify-center ">
               {listcontact.map((item, index) => (
@@ -52,21 +48,23 @@ const ContactComponent = ({ contactdata, listlogo }) => {
                 />
               ))}
             </div>
-            <div className="px-12 lg:px-36 mt-20">
-              <div className="flex items-center   ">
-                <Marquee autoFill={true} gradient={true} gradientWidth={50}>
-                  {sectionclient.map((item) => (
-                    <Image
-                      key={item.id}
-                      src={`${imageurl}${item.attributes.logo_client.data.attributes.url}`}
-                      alt=""
-                      className="h-14 w-18 md:h-26 md:w-30 object-scale-up rounded-2xl md-1 md:mx-3"
-                      height={300}
-                      width={300}
-                      style={{ width: "auto", height: "200" }}
-                    />
-                  ))}
-                </Marquee>
+            <div className="flex justify-center items-center">
+              <div className="px-12 max-w-7xl mt-10  ">
+                <div className="flex items-center animate-fade-up animate-once animate-duration-500 animate-delay-0 animate-ease-in">
+                  <Marquee autoFill={true} gradient={true} gradientWidth={50}>
+                    {sectionclient.map((item) => (
+                      <Image
+                        key={item.id}
+                        src={`${imageurl}${item.attributes.logo_client.data.attributes.url}`}
+                        alt=""
+                        className="h-14 w-18 md:h-26 md:w-30 object-scale-up rounded-2xl md-1 md:mx-3"
+                        height={300}
+                        width={300}
+                        style={{ width: "auto", height: "200" }}
+                      />
+                    ))}
+                  </Marquee>
+                </div>
               </div>
             </div>
           </div>

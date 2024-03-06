@@ -49,83 +49,32 @@ const PortofolioComponent = ({ listporto }) => {
     <div>
       <Animation>
         <section className="w-full h-[full]">
-          <div className="grid grid-rows-2 relative">
-            <div className="h-[500px] md:h-[480px] bg-gradient-to-r from-red-500 to-red-800 z-[5]">
-              <div className="py-8 px-[5%] md:px-[10%]">
-                <div className="flex flex-col gap-y-4 md:mt-10">
+          <div className="flex flex-col">
+            <div className="h-[500px] md:h-[480px] bg-gradient-to-r from-red-500 to-red-800 z-[5] flex justify-center">
+              <div className="py-8 max-w-7xl">
+                <div className="flex flex-col gap-y-2 mt-5 md:mt-10 px-[5%]">
                   <div className="flex flex-row gap-x-1">
-                    <div className="font-normal text-sm md:text-lg text-white">
+                    <div className="font-normal text-xs sm:text-md md:text-lg text-white">
                       {mainsection.judul_path}
                     </div>
                   </div>
-                  <div className="font-semibold text-xl md:text-2xl text-white">
+                  <div className="font-semibold text-md sm:text-lg md:text-2xl text-white">
                     {mainsection.subjudul}
                   </div>
-                  <div className="font-bold text-2xl md:text-2xl lg:text-4xl text-white">
+                  <div className="font-bold text-lg sm:text-xl md:text-2xl lg:text-4xl text-white">
                     {mainsection.judul_utama}
                   </div>
-                  <div className="font-normal text-sm md:text-lg text-white text-justify">
+                  <div className="font-normal text-sm sm:text-md md:text-lg text-white text-justify">
                     {mainsection.deskripsi}
                   </div>
                 </div>
               </div>
             </div>
-            <div className="h-[10%] z-[15] bg-transparant absolute self-center justify-self-center ">
-              <div className="mt-36 py-8 px-[5%]">
-                <div className="flex flex-col text-center mb-5">
-                  <div className="text-md lg:text-lg font-medium text-red-500 ">
-                    {portofoliosection.subjudul}
-                  </div>
-                  <div className="text-lg lg:text-4xl font-medium text-black mb-5">
-                    {portofoliosection.judul_utama}
-                  </div>
-                </div>
-                <div>
-                  <div>
-                    <div className="lg:grid lg:grid-cols-3 sm:grid sm:grid-cols-2 md:px-[5%]">
-                      {currentItems.map((item, index) => (
-                        <div key={item.id}>
-                          {item.attributes.gambar_utama.data == null ? (
-                            <ItemWork
-                              gambarporto="../../noimg.svg"
-                              judulporto={item.attributes.nama_aplikasi}
-                              perusahaan={item.attributes.perusahaan}
-                              slug={item.attributes.slug}
-                              index={index}
-                            />
-                          ) : (
-                            <ItemWork
-                              gambarporto={`${imageurl}${item.attributes.gambar_utama.data.attributes.url}`}
-                              judulporto={item.attributes.nama_aplikasi}
-                              perusahaan={item.attributes.perusahaan}
-                              slug={item.attributes.slug}
-                              index={index}
-                            />
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                    {listportofolio.data.length > itemsPerPage && (
-                      <div className="mt-4 flex justify-center items-center text-center gap-4">
-                        <Pagination
-                          currentPage={currentPage}
-                          totalPages={totalPages}
-                          onPageChange={handlePageChange}
-                        />
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
-              <div className="">
-                <Footer1 />
-              </div>
-            </div>
-            <div className="bg-transparant absolute top-0 left-0 w-full h-full flex items-center justify-center md:px-8 lg:px-16">
-              <div className="flex justify-center w-full px-[5%] md:px-[6%]">
-                <div className="border bg-white rounded-3xl shadow-md w-screen flex flex-col p-5 gap-y-3 min-h-0 z-[6]">
-                  <div className="grid grid-cols-1 md:grid-cols-3 md:divide-x-2 md:divide-y-0">
-                    <div className="p-3 grid grid-cols-2 md:flex-row md:flex md:gap-x-4 md:justify-center md:py-8">
+            <div className="flex justify-center items-center  h-[10rem] px-[5%]">
+              <div className="flex max-w-7xl px-4">
+                <div className="-mt-44 border bg-white rounded-xl md:py-8  shadow-md p-4 gap-y-2 min-h-0 z-[6] self-center">
+                  <div className="grid grid-cols-1 sm:grid sm:grid-cols-3">
+                    <div className="grid grid-cols-2 p-3 px-10 sm:flex sm:flex-row sm:flex-wrap xl:px-7 gap-x-6 md:gap-x-10">
                       <div className="text-gray-600 font-bold text-lg lg:text-4xl self-center">
                         {countsection.count1}
                       </div>
@@ -133,7 +82,7 @@ const PortofolioComponent = ({ listporto }) => {
                         {countsection.deskripsi1}
                       </div>
                     </div>
-                    <div className="p-3 grid grid-cols-2 md:flex-row md:flex md:gap-x-4 md:justify-center">
+                    <div className="grid grid-cols-2 p-3 px-10 sm:flex sm:flex-row sm:flex-wrap xl:px-7 gap-x-6 md:gap-x-10">
                       <div className="text-gray-600 font-bold text-lg lg:text-4xl self-center">
                         {countsection.count2}
                       </div>
@@ -141,7 +90,7 @@ const PortofolioComponent = ({ listporto }) => {
                         {countsection.deskripsi2}
                       </div>
                     </div>
-                    <div className="p-3 grid grid-cols-2 md:flex-row md:flex md:gap-x-4 md:justify-center">
+                    <div className="grid grid-cols-2 p-3 px-10 sm:flex sm:flex-row sm:flex-wrap xl:px-7 gap-x-6 md:gap-x-10">
                       <div className="text-gray-600 font-bold text-lg lg:text-4xl self-center">
                         {countsection.count3}
                       </div>
@@ -155,6 +104,55 @@ const PortofolioComponent = ({ listporto }) => {
             </div>
           </div>
         </section>
+        <section className="px-[5%] z-10 -mt-10">
+          <div className="flex flex-col text-center mb-5">
+            <div className="text-md lg:text-lg font-medium text-red-500 ">
+              {portofoliosection.subjudul}
+            </div>
+            <div className="text-lg lg:text-4xl font-medium text-black mb-5">
+              {portofoliosection.judul_utama}
+            </div>
+          </div>
+          <div className="flex justify-center">
+            <div className="max-w-7xl">
+              <div className="lg:grid lg:grid-cols-3 sm:grid sm:grid-cols-2 md:px-[5%]">
+                {currentItems.map((item, index) => (
+                  <div key={item.id}>
+                    {item.attributes.gambar_utama.data == null ? (
+                      <ItemWork
+                        gambarporto="../../noimg.svg"
+                        judulporto={item.attributes.nama_aplikasi}
+                        perusahaan={item.attributes.perusahaan}
+                        slug={item.attributes.slug}
+                        index={index}
+                      />
+                    ) : (
+                      <ItemWork
+                        gambarporto={`${imageurl}${item.attributes.gambar_utama.data.attributes.url}`}
+                        judulporto={item.attributes.nama_aplikasi}
+                        perusahaan={item.attributes.perusahaan}
+                        slug={item.attributes.slug}
+                        index={index}
+                      />
+                    )}
+                  </div>
+                ))}
+              </div>
+              {listportofolio.data.length > itemsPerPage && (
+                <div className="mt-4 flex justify-center items-center text-center gap-4">
+                  <Pagination
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    onPageChange={handlePageChange}
+                  />
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+        <div className="">
+          <Footer1 />
+        </div>
       </Animation>
     </div>
   );

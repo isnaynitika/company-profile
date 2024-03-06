@@ -39,10 +39,10 @@ const Footer2 = () => {
               <div className="h-64 bg-white"></div>
               <div className="h-44 bg-gray-200"></div>
               <div className="bg-transparant absolute  top-0 left-0 z-10 h-full w-full flex items-center justify-center md:px-8 lg:px-28">
-                <div className="flex justify-center ">
+                <div className="flex justify-center max-w-7xl">
                   <div className=" rounded-3xl overflow-hidden mt-4 md:mx-10 mx-5">
                     <Image
-                      className="md:h-[20vw] h-[40vw] sm:h-[40vw] w-[100vw] lg:h-[17vw] object-cover brightness-custom bg-gray-500"
+                      className="md:h-[20vw] h-[40vw] sm:h-[40vw] w-[100vw] lg:h-[13rem] object-cover brightness-custom bg-gray-500"
                       src={
                         isifooter.gambar_footer.data
                           ? `${imageurl}${isifooter.gambar_footer.data.attributes.url}`
@@ -72,7 +72,7 @@ const Footer2 = () => {
               </div>
             </div>
           </section>
-          <section className="-mt-20 md:-mt-32 relative z-20">
+          <section className="-mt-20 relative z-20">
             <ContentFooter />
           </section>
         </div>
