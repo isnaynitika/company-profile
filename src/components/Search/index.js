@@ -26,7 +26,7 @@ const SearchComponent = ({ onSearch }) => {
     <div className="w-full lg:max-w-md">
       <form className="flex items-center" onSubmit={handleSearch}>
         <input
-          className="inline w-full rounded-md border border-gray-300 bg-white py-2 pl-3 pr-3 leading-5 placeholder-gray-500  focus:placeholder-gray-400 focus:outline-none  sm:text-sm"
+          className="inline w-full rounded-md border border-gray-300 bg-white py-2 pl-3 pr-3 leading-5 placeholder-gray-500  focus:placeholder-gray-400 focus:outline-none text-gray-700 sm:text-sm"
           placeholder="Pencarian"
           type="text"
           value={query}
