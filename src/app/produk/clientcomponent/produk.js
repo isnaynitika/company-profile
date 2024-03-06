@@ -79,6 +79,95 @@ const ProdukComponent = ({ produkdata }) => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const paginateresult = (pageNumberresult) => setCurrentPageresult(pageNumberresult);
 
+  const handlePageChange = (page) => {
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+    }
+  };
+  const renderPageNumbers = () => {
+    const pageNumbers = [];
+    const maxPagesToShow = 3;
+
+    if (totalPages > maxPagesToShow) {
+      let startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
+      let endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
+
+      if (endPage - startPage < maxPagesToShow - 1) {
+        startPage = Math.max(1, endPage - maxPagesToShow + 1);
+      }
+
+      if (startPage > 1) {
+        pageNumbers.push(
+          <button key={1} onClick={() => handlePageChange(1)} className="px-4 py-2 text-red-500">
+            1
+          </button>
+        );
+        if (startPage > 2) {
+          pageNumbers.push(
+            <span key="ellipsis1" className="text-red-500">
+              ...
+            </span>
+          );
+        }
+      }
+
+      for (let i = startPage; i <= endPage; i++) {
+        pageNumbers.push(
+          <button
+            key={i}
+            onClick={() => handlePageChange(i)}
+            disabled={currentPage === i}
+            className={`${
+              currentPage === i
+                ? "bg-red-500 text-white font-semibold rounded-md mr-2 px-4 py-2"
+                : ""
+            } px-4 py-2 text-red-500  `}
+          >
+            {i}
+          </button>
+        );
+      }
+
+      if (endPage < totalPages) {
+        if (endPage < totalPages - 1) {
+          pageNumbers.push(
+            <span key="ellipsis2" className="text-red-500">
+              ...
+            </span>
+          );
+        }
+        pageNumbers.push(
+          <button
+            key={totalPages}
+            onClick={() => handlePageChange(totalPages)}
+            className="px-4 py-2 text-red-500"
+          >
+            {totalPages}
+          </button>
+        );
+      }
+    } else {
+      for (let i = 1; i <= totalPages; i++) {
+        pageNumbers.push(
+          <button
+            key={i}
+            onClick={() => handlePageChange(i)}
+            disabled={currentPage === i}
+            className={`${
+              currentPage === i
+                ? "bg-red-500 text-white font-semibold rounded-md mr-2 px-4 py-2"
+                : ""
+            } px-4 py-2 text-red-500  `}
+          >
+            {i}
+          </button>
+        );
+      }
+    }
+
+    return pageNumbers;
+  };
+
   return (
     <div>
       <Animation className="">
@@ -185,14 +274,15 @@ const ProdukComponent = ({ produkdata }) => {
                     <button
                       onClick={() => paginate(currentPage - 1)}
                       disabled={currentPage === 1}
-                      className="mr-2 px-4 py-2    disabled:opacity-60 border border-red-500"
+                      className="px-4 py-2    disabled:opacity-60 "
                     >
                       <FontAwesomeIcon icon={faChevronLeft} className="text-red-500 text-bold" />
                     </button>
+                    {renderPageNumbers()}
                     <button
                       onClick={() => paginate(currentPage + 1)}
                       disabled={currentPage === totalPages}
-                      className="mr-2 px-4 py-2    disabled:opacity-60 border border-red-500"
+                      className="px-4 py-2    disabled:opacity-60 "
                     >
                       <FontAwesomeIcon icon={faChevronRight} className="text-red-500 text-bold" />
                     </button>
