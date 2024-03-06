@@ -118,23 +118,25 @@ const CustomDevComponent = ({ customdevdata }) => {
                       ))}
                     </div>
                   </div>
-                  <div className="flex justify-center self-start items-start bg-gray-100 boreder rounded-2xl py-7 ">
-                    <div className="flex flex-col gap-y-8 md:px-6 text-center md:py-10">
-                      <div className="font-medium text-black text-xl md:text-3xl">
-                        {metode.metode_pengembangan}
-                      </div>
-                      <div className="font-light text-gray-600 text-lg mx-3">
-                        {metode.deskripsi}
-                      </div>
-                      <div className="flex justify-center items-center text-center">
-                        <Image
-                          src={`${imageurl}${metode.icon_metodepengembangan.data.attributes.url}`}
-                          alt=""
-                          className="size-52 sm:size-60 md:size-80 object-cover rounded-2xl text-center"
-                          width={500}
-                          height={500}
-                          style={{ width: "300px", height: "300px", objectFit: "cover" }}
-                        />
+                  <div className="md:px-[5%]">
+                    <div className="flex justify-center self-start items-start bg-gray-100 boreder rounded-2xl py-7 ">
+                      <div className="flex flex-col gap-y-8 md:px-20 text-center md:py-10">
+                        <div className="font-medium text-black text-xl md:text-3xl">
+                          {metode.metode_pengembangan}
+                        </div>
+                        <div className="font-light text-gray-600 text-lg mx-3">
+                          {metode.deskripsi}
+                        </div>
+                        <div className="flex justify-center items-center text-center">
+                          <Image
+                            src={`${imageurl}${metode.icon_metodepengembangan.data.attributes.url}`}
+                            alt=""
+                            className="size-52 sm:size-60 md:size-80 object-cover rounded-2xl text-center"
+                            width={500}
+                            height={500}
+                            style={{ width: "300px", height: "300px", objectFit: "cover" }}
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
