@@ -28,12 +28,12 @@ const ItemWork = ({ gambarporto, judulporto, perusahaan, index, slug }) => {
       </div>
       <div className="flex flex-col py-4">
         <div className="px-5 flex flex-auto justify-between flex-col h-full">
-          <div className="flex flex-auto">
+          <div className="flex flex-auto h-16">
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 line-clamp-2">
               {perusahaan}
             </h5>
           </div>
-          <p className="mb-3 font-normal text-gray-700 line-clamp-1">{judulporto}</p>
+          <p className="mb-3 font-normal text-gray-700 line-clamp-1 ">{judulporto}</p>
         </div>
 
         <div className="px-5 flex self-start">
