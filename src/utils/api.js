@@ -4,7 +4,7 @@ const url = process.env.NEXT_PUBLIC_API_URL;
 
 export async function getHome() {
   const res = await fetch(
-    `${url}/home?populate[0]=hero_section.gambar_hero.media&populate[1]=list_logos.logo_client.media&populate[2]=produk_section&populate[3]=list_solusis.gambar.media&populate[4]=keunggulan_section.mockup_produk.media&populate[5]=keunggulan_section.list_fiturs&populate[6]=bisnis_section&populate[7]=list_bidangs.icon_bisnis.media`,
+    `${url}/home?populate[0]=hero_section.gambar_hero.media&populate[1]=list_logos.logo_client.media&populate[2]=produk_section&populate[3]=list_solusis.gambar.media&populate[4]=keunggulan_section.mockup_produk.media&populate[5]=keunggulan_section.list_fiturs&populate[6]=bisnis_section&populate[7]=list_bidangs.icon_bisnis.media&populate[8]=menu_navbar`,
     { cache: "no-store" }
   );
   if (!res.ok) {
@@ -16,7 +16,7 @@ export async function getHome() {
 
 export async function getCareer() {
   const res = await fetch(
-    `${url}/karir?populate[0]=main_section&populate[1]=carier_section&populate[2]=list_karirs.icon.media`,
+    `${url}/karir?populate[0]=main_section&populate[1]=carier_section&populate[2]=list_karirs.icon.media&populate[3]=menu_navbar`,
     { cache: "no-store" }
   );
   if (!res.ok) {
@@ -36,9 +36,12 @@ export async function getLogoClient() {
 }
 
 export async function getContact() {
-  const res = await fetch(`${url}/hubungi-kami?populate[0]=list_contacts.profile_picture.media`, {
-    cache: "no-store",
-  });
+  const res = await fetch(
+    `${url}/hubungi-kami?populate[0]=list_contacts.profile_picture.media&populate[1]=menu_navbar`,
+    {
+      cache: "no-store",
+    }
+  );
   if (!res.ok) {
     redirect("/error");
   } else {
@@ -47,7 +50,7 @@ export async function getContact() {
 }
 export async function getPortofolio() {
   const res = await fetch(
-    `${url}/portofolio?populate[0]=main_section&populate[1]=count_section&populate[2]=portofolio_section&populate[3]=list_portofolios.gambar_utama.media
+    `${url}/portofolio?populate[0]=main_section&populate[1]=count_section&populate[2]=portofolio_section&populate[3]=list_portofolios.gambar_utama.media&populate[4]=menu_navbar
     `,
     {
       cache: "no-store",
@@ -117,9 +120,12 @@ export async function getDevService() {
 }
 
 export async function getProduk() {
-  const res = await fetch(`${url}/produk?populate=list_produks.gambar_produk.media`, {
-    cache: "no-store",
-  });
+  const res = await fetch(
+    `${url}/produk?populate[0]=list_produks.gambar_produk.media&populate[1]=menu_navbar`,
+    {
+      cache: "no-store",
+    }
+  );
   if (!res.ok) {
     redirect("/error");
   } else {
@@ -131,6 +137,19 @@ export async function searchProduk(param) {
   const res = await fetch(`${url}/list-produks?filters[nama_produk][$contains]=${param}`, {
     cache: "no-store",
   });
+  if (!res.ok) {
+    redirect("/error");
+  } else {
+    return res.json();
+  }
+}
+export async function getNavbar() {
+  const res = await fetch(
+    `${url}/navbar?populate[0]=Beranda&populate[1]=Solusi.custom_development&populate[2]=Portofolio&populate[3]=Karir&populate[4]=Kontak&populate[5]=Produk&populate[6]=Solusi.principal_product&populate[7]=Solusi.dev_service`,
+    {
+      cache: "no-store",
+    }
+  );
   if (!res.ok) {
     redirect("/error");
   } else {

@@ -1,10 +1,10 @@
-import Navbar from "./Navbar";
+import NavbarMenu from "./Navbar";
 import FloatingActionButton from "./FloatingChat";
 
 const Layout = ({ children }) => {
   return (
     <div>
-      <Navbar />
+      <NavbarMenu />
       {children}
       <FloatingActionButton />
     </div>

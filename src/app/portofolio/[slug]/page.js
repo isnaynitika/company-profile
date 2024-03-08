@@ -90,7 +90,7 @@ export default function DetailPage() {
                   <div className="">
                     <div className="">
                       <Marquee autoFill={true} gradientWidth={20}>
-                        {detail.attributes.galeri_portofolio.data.map((item) => (
+                        {detail.attributes.galeri_portofolio.data?.map((item) => (
                           <Image
                             key={item.id}
                             src={`${imageurl}${item.attributes.url}`}
