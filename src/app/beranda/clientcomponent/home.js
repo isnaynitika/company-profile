@@ -151,9 +151,6 @@ const HomeComponent = ({ homedata }) => {
             </div>
           </div>
         </section>
-        <section className="w-full">
-          <Footer1 />
-        </section>
       </Animation>
       {/* {loading ? (
         <div className="flex justify-center items-center min-h-full">

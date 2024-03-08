@@ -2,6 +2,7 @@ import { getHome, getNavbar } from "../../utils/api";
 import HomeComponent from "./clientcomponent/home";
 import { Suspense } from "react";
 import Loading from "./loading";
+import Footer1 from "../../components/Footer";
 
 export default async function Landing() {
   const data = getHome();
@@ -15,6 +16,9 @@ export default async function Landing() {
       <div className="h-full ">
         <Suspense fallback={<Loading />}>
           <HomeComponent homedata={listdata} />
+          <section className="w-full">
+            <Footer1 />
+          </section>
         </Suspense>
       </div>
     );

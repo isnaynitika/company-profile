@@ -69,9 +69,6 @@ const ContactComponent = ({ contactdata, listlogo }) => {
             </div>
           </div>
         </section>
-        <div className="mt-[4rem] md:mt-[2%]">
-          <Footer1 />
-        </div>
       </Animation>
     </div>
   );

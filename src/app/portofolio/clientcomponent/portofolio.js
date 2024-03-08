@@ -150,9 +150,6 @@ const PortofolioComponent = ({ listporto }) => {
             </div>
           </div>
         </section>
-        <div className="">
-          <Footer1 />
-        </div>
       </Animation>
     </div>
   );

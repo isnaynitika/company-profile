@@ -1,5 +1,6 @@
 import { getCustomDev, getNavbar } from "../../../utils/api";
 import CustomDevComponent from "./clientcomponent/customdev";
+import Footer2 from "../../../components/Footer2";
 
 export default async function CustomDev() {
   const data = getCustomDev();
@@ -35,6 +36,9 @@ export default async function CustomDev() {
   return (
     <div>
       <CustomDevComponent customdevdata={listcutomdev} />
+      <div className="">
+        <Footer2 />
+      </div>
     </div>
   );
 }

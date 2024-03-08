@@ -1,5 +1,6 @@
 import { getPortofolio, getNavbar } from "../../utils/api";
 import PortofolioComponent from "./clientcomponent/portofolio";
+import Footer1 from "../../components/Footer";
 
 export default async function Work() {
   const portofolio = getPortofolio();
@@ -12,6 +13,9 @@ export default async function Work() {
     return (
       <div>
         <PortofolioComponent listporto={portofoliodata} />
+        <div className="">
+          <Footer1 />
+        </div>
       </div>
     );
   } else {

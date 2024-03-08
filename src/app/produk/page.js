@@ -1,5 +1,6 @@
 import { getProduk, getNavbar } from "../../utils/api";
 import ProdukComponent from "./clientcomponent/produk";
+import Footer1 from "../../components/Footer";
 
 export default async function Produk() {
   const data = getProduk();
@@ -12,6 +13,9 @@ export default async function Produk() {
     return (
       <div>
         <ProdukComponent produkdata={listproduk} />
+        <div className="mt-[4rem] md:mt-[2%]">
+          <Footer1 />
+        </div>
       </div>
     );
   } else {

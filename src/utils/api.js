@@ -156,3 +156,52 @@ export async function getNavbar() {
     return res.json();
   }
 }
+
+export async function getChat() {
+  const res = await fetch(
+    `${url}/custom-chatbot?populate[0]=main_section.avatar.media&populate[1]=jawaban_bot&populate[2]=jawaban_salah`,
+    {
+      cache: "no-store",
+    }
+  );
+  if (!res.ok) {
+    redirect("/error");
+  } else {
+    return res.json();
+  }
+}
+
+export async function getBot() {
+  const res = await fetch(`${url}/chatbots`, {
+    cache: "no-store",
+  });
+  if (!res.ok) {
+    redirect("/error");
+  } else {
+    return res.json();
+  }
+}
+
+export async function getFooter() {
+  const res = await fetch(
+    `${url}/footer-utama?populate[0]=main_footer.logo.media&populate[1]=main_footer.footer_contacts&populate[2]=main_footer.footer_karirs&populate[3]=main_footer.footer_alamats&populate[4]=gambar_footer.media`,
+    {
+      cache: "no-store",
+    }
+  );
+  if (!res.ok) {
+    redirect("/error");
+  } else {
+    return res.json();
+  }
+}
+export async function getFooter2() {
+  const res = await fetch(`${url}/footer-kedua?populate=gambar_footer.media`, {
+    cache: "no-store",
+  });
+  if (!res.ok) {
+    redirect("/error");
+  } else {
+    return res.json();
+  }
+}

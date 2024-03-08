@@ -1,5 +1,6 @@
 import { getPrincipal, getNavbar } from "../../../utils/api";
 import PrincipalComponent from "./clientcomponent/principal";
+import Footer2 from "../../../components/Footer2";
 
 export default async function PrincipalProduct() {
   const data = getPrincipal();
@@ -35,6 +36,7 @@ export default async function PrincipalProduct() {
   return (
     <div>
       <PrincipalComponent principaldata={listprincipal} />
+      <Footer2 />
     </div>
   );
 }

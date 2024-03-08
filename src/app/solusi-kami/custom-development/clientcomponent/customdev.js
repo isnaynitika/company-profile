@@ -82,7 +82,7 @@ const CustomDevComponent = ({ customdevdata }) => {
                   {judulsection.subjudul}
                 </div>
               </div>
-              <div className="flex justify-center">
+              <div className="flex justify-center w-full">
                 <div className="max-w-7xl">
                   <div className=" flex items-center justify-center mb-20">
                     <div className="grid grid-cols-1 gap-4">
@@ -142,9 +142,6 @@ const CustomDevComponent = ({ customdevdata }) => {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="">
-              <Footer2 />
             </div>
           </div>
         </section>

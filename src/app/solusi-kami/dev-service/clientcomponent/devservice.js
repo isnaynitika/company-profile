@@ -59,7 +59,7 @@ const DevServiceComponent = ({ devservicedata }) => {
             </div>
           </div>
         </section>
-        <section className="h-screen">
+        <section className="h-full">
           <div className=" bg-gradient-to-r from-red-500 to-red-800 ">
             <div className="py-16 px-[5%] md:px-[15%]">
               <div className="font-medium text-lg md:text-4xl text-white flex flex-col justify-center items-center gap-y-4">
@@ -215,8 +215,6 @@ const DevServiceComponent = ({ devservicedata }) => {
               </div>
             </div>
           </div>
-
-          <Footer2 />
         </section>
       </Animation>
     </div>

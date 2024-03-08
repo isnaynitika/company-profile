@@ -194,9 +194,6 @@ const ProdukComponent = ({ produkdata }) => {
             </div>
           </div>
         </div>
-        <div className="mt-[4rem] md:mt-[2%]">
-          <Footer1 />
-        </div>
       </Animation>
     </div>
   );

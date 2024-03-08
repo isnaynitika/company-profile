@@ -137,9 +137,6 @@ const CareerComponent = ({ careerdata }) => {
             </div>
           </div>
         </section>
-        <div className="">
-          <Footer2 />
-        </div>
       </Animation>
     </div>
   );

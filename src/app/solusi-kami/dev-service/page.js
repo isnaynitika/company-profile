@@ -1,5 +1,6 @@
 import { getDevService, getNavbar } from "../../../utils/api";
 import DevServiceComponent from "./clientcomponent/devservice";
+import Footer2 from "../../../components/Footer2";
 
 export default async function DevService() {
   const data = getDevService();
@@ -36,6 +37,7 @@ export default async function DevService() {
   return (
     <div>
       <DevServiceComponent devservicedata={listdevservice} />
+      <Footer2 />
     </div>
   );
 }

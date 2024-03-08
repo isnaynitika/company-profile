@@ -3,7 +3,7 @@ import { Fragment, useState } from "react";
 
 const AlertModal = ({ isShow, close }) => {
   return (
-    <div className="">
+    <div className="w-screen">
       <Transition appear show={isShow} as={Fragment}>
         <Dialog as="div" className="relative z-50" onClose={close}>
           <Transition.Child
@@ -18,7 +18,7 @@ const AlertModal = ({ isShow, close }) => {
             <div className="fixed inset-0 bg-black/25" />
           </Transition.Child>
 
-          <div className="fixed inset-0 overflow-y-auto">
+          <div className="fixed inset-0 overflow-y-auto max-w-7xl">
             <div className="flex min-h-full items-center justify-center p-4 text-center">
               <Transition.Child
                 as={Fragment}

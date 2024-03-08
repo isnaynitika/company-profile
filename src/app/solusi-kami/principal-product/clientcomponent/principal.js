@@ -220,7 +220,6 @@ const PrincipalComponent = ({ principaldata }) => {
             </div>
           </div>
         </section>
-        <Footer2 />
       </Animation>
     </div>
   );

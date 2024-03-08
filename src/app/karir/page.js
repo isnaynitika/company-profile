@@ -1,5 +1,6 @@
 import { getCareer, getNavbar } from "../../utils/api";
 import CareerComponent from "./clientcomponent/career";
+import Footer2 from "../../components/Footer2";
 
 export default async function Career() {
   const data = getCareer();
@@ -12,6 +13,9 @@ export default async function Career() {
     return (
       <div>
         <CareerComponent careerdata={listdata} />
+        <div className="">
+          <Footer2 />
+        </div>
       </div>
     );
   } else {

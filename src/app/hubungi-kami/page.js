@@ -1,5 +1,6 @@
 import { getContact, getLogoClient, getNavbar } from "../../utils/api";
 import ContactComponent from "./clientcomponent/contact";
+import Footer1 from "../../components/Footer";
 
 export default async function Contact() {
   const contact = getContact();
@@ -15,6 +16,9 @@ export default async function Contact() {
     return (
       <div>
         <ContactComponent contactdata={listcontact} listlogo={logoclient} />
+        <section className="w-full">
+          <Footer1 />
+        </section>
       </div>
     );
   } else {
