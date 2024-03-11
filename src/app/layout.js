@@ -3,6 +3,7 @@ import "./globals.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import Layout from "../components/layout";
+import Script from "next/script";
 
 config.autoAddCss = false;
 const inter = Montserrat({ weights: 200, subsets: ["latin"] });
@@ -15,6 +16,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-JM6388BK6Z"></script>
+      <Script id="google-analytics">
+        {` window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-JM6388BK6Z');`}
+      </Script>
       <body className={inter.className}>
         <Layout>{children}</Layout>
       </body>
